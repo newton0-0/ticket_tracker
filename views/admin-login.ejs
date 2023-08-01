@@ -31,7 +31,7 @@
         const password = form.password.value;
 
         try {
-            const res = await fetch('/login', {
+            const res = await fetch('/admin', {
                 method: 'POST',
                 body: JSON.stringify({ email, password}),
                 headers: { 'Content-type': 'application/json'}
@@ -43,7 +43,7 @@
                 passwordError.textContent = data.errors.password;
             }
             if(data.user) {
-                location.assign('/stud');
+                location.assign('/dashboard');
             }
         } 
         catch(err) {

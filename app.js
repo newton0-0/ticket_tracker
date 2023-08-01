@@ -1,9 +1,11 @@
+require('dotenv').config();
+
 const express = require('express');
 const mongoose = require('mongoose');
 const authRoutes = require('./routes/authRoutes');
 const cookieParser = require('cookie-parser');
 const {requireAuth, checkUser} = require('./middleware/authMiddleware');
-
+const dbURI = process.env.URI;
 const app = express();
 
 // middleware
@@ -18,10 +20,9 @@ app.use(cookieParser());
 app.set('view engine', 'ejs');
 
 // database connection
-const dbURI = 'mongodb+srv://harshpandeybtech2024:VGSs5wxKz6jqGH5A@cluster0.mnngz3e.mongodb.net/node-auth';
 mongoose.connect(dbURI)
   .then((result) => {
-    app.listen(3000, console.log(`Server running on ${3000}`))
+    app.listen(3000, console.log(`Server running on ${4000}`))
   })
   .catch((err) => console.log(err));
 

@@ -1,0 +1,25 @@
+<%- include('partials/header'); -%>
+
+<section class="articles">
+    <ul class="recipes">
+        <% data.forEach(post => { %>
+        <li class="recipe">
+            <a href="/complaints/<%- post._id %>">
+                <h5><%- post.createdAt.toDateString() %></h5>
+                <h4><%= post.title %></h4>
+                <p class="article-list__date"><%= post.stage %></p>
+            </a>
+        </li>
+        <% }) %>
+    </ul>
+
+    <% if (nextPage !== null) { %>
+        <a href="/complaints/?page=<%= nextPage %>" class="pagination"> Next Page ></a>
+    <% } %>
+    <span class="pagination"> Page : <%= page %> </span>
+    <% if (lastPage !== null) { %>
+        <a href="/complaints/?page=<%= lastPage %>" class="pagination">&lt; Last Page</a>
+    <% } %>
+</section>
+
+<%- include('partials/footer'); -%>

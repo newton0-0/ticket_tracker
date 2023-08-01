@@ -1,0 +1,59 @@
+<%- include('partials/header'); -%>
+
+<div class="recipe">
+    <ul class="recipe1">
+    <li class="posttitle">
+        <li><h4><%- post.title %></h4></li>
+        <li class="dunno"> stage : <%- post.stage %></li>
+        <li><h5>wrote <%- post.student %>  on <%- post.createdAt.toDateString() %></h5></li>
+    </li>
+    <li class="dunno">remark : <%- post.remark %></li>
+    <li class="postmsg"><p><%- post.message %></p></li>
+    </ul>
+
+    <% if (pro == "admin") { %>
+        <form action="post">
+            <label for="stage"><b> Stage</b></label>
+            <input type="text" name="stage" required />
+
+            <label for="remark"><b> Remark</b></label>
+            <input type="text" name="remark" required />
+
+            <button>Register Progress</button>
+        </form>
+        <a class="pagination1" href="/complaint/<%- post.id %>?_method-DELETE"> Finished </a>
+    <% } %>
+</div>
+
+<script>
+    const form = document.querySelector('form');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        //getting the values
+        const stage = form.stage.value;
+        const remark = form.remark.value;
+
+        try {
+            const res = await fetch('/complaints/<%- post.id %>', {
+                method: 'PUT',
+                body: JSON.stringify({ stage, remark }),
+                headers: { 'Content-Type': 'application/json' }
+            });
+            
+            const data = await res.json();
+            
+            console.log(data);
+            
+            if(data.stage) {
+                location.assign('/complaints');
+            }
+        } 
+        catch(err) {
+            console.log(err);
+        }
+    });
+</script>
+
+<%- include('partials/footer'); -%>

@@ -1,0 +1,57 @@
+<%- include('partials/header'); -%>
+
+<div class="recipe">
+    <ul class="recipe1">
+    <li class="posttitle">
+        <li><h4><%- post.title %></h4></li>
+        <li><h5>wrote <%- post.student %>  on <%- post.createdAt.toDateString() %></h5></li>
+    </li>
+    <li class="postmsg"><p><%- post.message %></p></li>
+    <% if (pro == "admin") { %>
+        <form action="post">
+            <label for="stage"><b>stage</b></label>
+            <input type="text" name="stage" required />
+            <div class="email error"></div>
+
+            <label for="remark"><b>remark</b></label>
+            <input type="text" name="remark" required />
+            <div class="password error"></div>
+
+            <button class="dunno">Do you consider to process it into a complaint ?</button>
+        </form>
+
+        <script>
+        const form = document.querySelector('form');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            //getting the values
+            const stage = form.stage.value;
+            const remark = form.remark.value;
+
+            try {
+                const res = await fetch('/appeal/<%- post.id %>', {
+                    method: 'POST',
+                    body: JSON.stringify({ stage, remark }),
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                
+                const data = await res;
+                window.location.href = "/dashboard"
+
+            } 
+            catch(err) {
+                console.log(err);
+            }
+        });
+        function dlt() {
+
+        }
+    </script>
+
+    <% } %>
+    </ul>
+</div>
+
+<%- include('partials/footer'); -%>

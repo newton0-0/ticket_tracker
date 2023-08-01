@@ -9,7 +9,7 @@ body{
 }
 h1, h2, h3, h4, ul, li, a, p, input, label, button, div, footer{
   margin: 0;
-  padding: 0;
+  padding: 1px;
   font-family: 'Quicksand', sans-serif;
   color: #000000;
 }
@@ -46,7 +46,7 @@ nav li a{
 .btn{
   background-color: #D0C06E;
   border-radius: 36px;
-  color: white;
+  color: rgb(255, 255, 255);
 }
 form h2{
   font-size: 2.4em;
@@ -73,7 +73,7 @@ label{
   margin: 20px 0 10px;
 }
 button{
-  color: whitesmoke;
+  color: white;
   margin-top: 30px;
   border-radius: 36px;
   background: #D0C06E;
@@ -131,7 +131,7 @@ header .btn{
   background: white;
   position: relative;
   text-align: center;
-  padding: 0 20px 30px 20px
+  padding: 10px 20px 30px 20px
 }
 .recipe img{
   width: 100px;
@@ -142,6 +142,47 @@ header .btn{
   float: center;
   width: 80%;
   height: 40%;
+}
+
+.pagination {
+  justify-content: center;
+  margin-left: 19%;
+  font-family: 'Quicksand', sans-serif;
+  -webkit-text-stroke: 1px rgba(53, 53, 53, 0.514);
+}
+
+.posttitle {
+  padding: 30px;
+}
+
+.postmsg {
+  justify-content: center;
+  padding: 30px;
+}
+
+.dunno {
+  font-size: 100%;
+  -webkit-text-stroke: 2px #ffffff;
+  border: 2px solid rgb(209, 0, 0);
+  background-color: #ff00004f;
+  color: #ffffff;
+  padding-left: 35px;
+  padding-right: 35px;
+  border-radius: 35px;
+}
+
+.pagination1 {
+  background-color: #e6e6e6;
+  border-radius: 15px;
+  float: right;
+  margin-right: 5%;
+  margin-left: 5%;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  font-family: 'Quicksand', sans-serif;
+  -webkit-text-stroke: 1px rgba(53, 53, 53, 0.514);
 }
 
 footer{
