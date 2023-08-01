@@ -1,0 +1,15 @@
+<%- include('partials/header'); -%>
+
+<div class="chatbody">
+    <form action="post">
+        <label for="email"><b>name</b></label>
+        
+        <label for="password"><b>message</b></label>
+        <input type="text" name="text" required />
+        <div class="password error"></div>
+        
+        <button>send</button>
+    </form>
+</div>
+
+<%- include('partials/footer'); -%>
